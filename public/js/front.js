@@ -2522,7 +2522,7 @@ var render = function () {
                     },
                   },
                 },
-                [_vm._v("Precedente")]
+                [_vm._v("Prev")]
               ),
             ]
           ),
@@ -2544,7 +2544,7 @@ var render = function () {
                     },
                   },
                 },
-                [_vm._v("Successivo")]
+                [_vm._v("Next")]
               ),
             ]
           ),
