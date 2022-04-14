@@ -6,7 +6,7 @@
             <div class="col-md-12">
 
                 <h1>Visualizza Post</h1>
-
+                <img class="img-fluid" src="{{asset('storage/' . $post->cover)}}" alt="{{$post->title}}">
                 <div><strong>Titolo: </strong>{{$post->title}}</div>
                 <div><strong>Contenuto: </strong>{!! $post->content !!}</div>
                 <div><strong>Slug: </strong>{{$post->slug}}</div>

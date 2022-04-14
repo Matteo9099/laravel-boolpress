@@ -17,7 +17,7 @@
 
       <nav aria-label="Page navigation example">
         <ul class="pagination">
-          <li class="page-item" :class="(currentPage == 1)?'disable':''"><span class="page-link" @click="getPosts(currentPage - 1)">Prev</span></li>
+          <li class="page-item" :class="(currentPage == 1)?'disabled':''"><span class="page-link" @click="getPosts(currentPage - 1)">Prev</span></li>
           <li class="page-item" :class="(currentPage == lastPage)?'disabled':''"><span class="page-link" @click="getPosts(currentPage + 1)">Next</span></li>
         </ul>
       </nav>
@@ -30,7 +30,7 @@
 import Post from '../components/Post';
 
 export default {
-  name: "Main",
+  name: "Posts",
   components: {
     Post
   },

@@ -38,7 +38,7 @@ export default {
               },
               {
                   routeName: "blog",
-                  label: "blog",
+                  label: "Blog",
               }
           ]
       }

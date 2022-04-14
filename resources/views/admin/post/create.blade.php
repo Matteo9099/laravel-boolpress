@@ -7,8 +7,13 @@
 
                 <h1>Crea un nuovo post</h1>
 
-                <form method="POST" action="{{ route('admin.posts.store') }}">
+                <form method="POST" action="{{ route('admin.posts.store') }}" enctype="multipart/form-data">
                     @csrf
+
+                    <div class="form-group">
+                        <label for="image">Immagine copertina</label>
+                        <input class="form-control" type="file" name="image" id="image">
+                    </div>
 
                     <div class="form-group">
                         <label for="category_id">Categoria</label>
