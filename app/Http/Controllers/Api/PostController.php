@@ -17,13 +17,13 @@ class PostController extends Controller
     {
         $posts = Post::with(['category','tags'])->paginate(2); 
 
-        // $posts->each(function($post) {
-        //     if ($post->cover) {
-        //         $post->cover = url('storage/'.$post->cover);
-        //     } else {
-        //         $post->cover = url('img/fallback_img.jpg');
-        //     }
-        // });
+        $posts->each(function($post) {
+            if ($post->cover) {
+                $post->cover = url('storage/'.$post->cover);
+            } else {
+                $post->cover = url('img/fallback.png');
+            }
+        });
 
         return response()->json(
             [

@@ -6,11 +6,12 @@
         <div class="row">
             <div class="col-6" v-for="post in posts" :key="post.id">
                 <Post
-                  :title = 'post.title'
-                  :content = 'post.content'
-                  :slug = 'post.slug'
-                  :category = 'post.category'
-                  :tags = 'post.tags'
+                  :title ='post.title'
+                  :content ='post.content'
+                  :slug ='post.slug'
+                  :category ='post.category'
+                  :tags ='post.tags'
+                  :img='post.cover'
                 />
             </div>
         </div>

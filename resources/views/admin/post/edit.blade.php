@@ -7,11 +7,14 @@
 
                 <h1>Modifica post</h1>
 
-                <form method="POST" action={{route('admin.posts.update', $post->id)}}  enctype="multipart/form-data">
+                <form method="POST" action={{ route('admin.posts.update', $post->id) }} enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
-                    <img class="img-fluid" src="{{asset('storage/' . $post->cover)}}" alt="{{$post->title}}">
+                    @if ($post->cover)
+                    <p>Immagine attuale</p>
+                        <img class="img-fluid" src="{{ asset('storage/' . $post->cover) }}" alt="{{ $post->title }}">
+                    @endif
 
                     <div class="form-group">
                         <label for="image">Carica nuova immagine copertina</label>
@@ -43,13 +46,19 @@
                     @foreach ($tags as $tag)
                         @if ($errors->any())
                             <div class="custom-control custom-checkbox">
-                                <input name="tags[]" type="checkbox" class="custom-control-input"id="tag_{{ $tag->id }}" value={{ $tag->id }} {{ in_array($tag->id, old('tags')) ? 'checked' : '' }}>
-                                <label class="custom-control-label" for="tag_{{ $tag->id }}">{{ $tag->name }}</label>
+                                <input name="tags[]" type="checkbox" class="custom-control-input"
+                                    id="tag_{{ $tag->id }}" value={{ $tag->id }}
+                                    {{ in_array($tag->id, old('tags')) ? 'checked' : '' }}>
+                                <label class="custom-control-label"
+                                    for="tag_{{ $tag->id }}">{{ $tag->name }}</label>
                             </div>
                         @else
                             <div class="custom-control custom-checkbox">
-                                <input name="tags[]" type="checkbox" class="custom-control-input" id="tag_{{ $tag->id }}" value={{ $tag->id }} {{ $post->tags->contains($tag->id) ? 'checked' : '' }}>
-                                <label class="custom-control-label" for="tag_{{ $tag->id }}">{{ $tag->name }}</label>
+                                <input name="tags[]" type="checkbox" class="custom-control-input"
+                                    id="tag_{{ $tag->id }}" value={{ $tag->id }}
+                                    {{ $post->tags->contains($tag->id) ? 'checked' : '' }}>
+                                <label class="custom-control-label"
+                                    for="tag_{{ $tag->id }}">{{ $tag->name }}</label>
                             </div>
                         @endif
                     @endforeach

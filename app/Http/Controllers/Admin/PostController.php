@@ -134,7 +134,10 @@ class PostController extends Controller
 
             if(isset($data['image'])){
                 
-                Storage::delete($post->cover);
+                if($post->cover){
+                    Storage::delete($post->cover);
+                }
+                
                 $cover_path = Storage::put('post_covers', $data['image']);
                 $data['cover'] = $cover_path;
             };
