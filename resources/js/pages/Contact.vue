@@ -5,22 +5,35 @@
     
             <form @submit.prevent="sendForm">
 
-                <div class="form-group">
-                    <label for="name">Il tuo nome</label>
-                    <input type="text" class="form-control" id="name" name="name" v-model="name">
+                 <div v-if="success" class="alert alert-success">
+                    Email inviata con successo!!
+                </div>
+
+                 <div class="form-group">
+                    <label for="name">Inserisci nome</label>
+                    <input type="text" class="form-control" :class="{'is-invalid':errors.name}" id="name" name="name" v-model="name">
+                    <p v-for="(error, index) in errors.name" :key="'error_name'+index" class="invalid-feedback">
+                        {{error}}
+                    </p>
                 </div>
 
                 <div class="form-group">
-                    <label for="email">La tua email</label>
-                    <input type="email" class="form-control" id="email" name="email" v-model="email">
+                    <label for="email">Inserisci la tua email</label>
+                    <input type="email" class="form-control" :class="{'is-invalid':errors.email}" id="email" name="email" v-model="email">
+                    <p v-for="(error, index) in errors.email" :key="'error_email'+index" class="invalid-feedback">
+                        {{error}}
+                    </p>
                 </div>
 
                 <div class="form-group">
-                    <label for="message">Motivo del contatto:</label>
-                    <textarea class="form-control" id="message" name="message" v-model="message"></textarea>
+                    <label for="message">Motivo del contatto</label>
+                    <textarea class="form-control" :class="{'is-invalid':errors.message}" id="message" rows="6" name="message" v-model="message"></textarea>
+                    <p v-for="(error, index) in errors.message" :key="'error_message'+index" class="invalid-feedback">
+                        {{error}}
+                    </p>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Invia</button>
+                <button type="submit" class="btn btn-primary">{{sendingInProgress? 'Invio in corso...':'Invia'}}</button>
 
             </form>
         </div>
@@ -35,17 +48,32 @@
            return {
                name: '',
                email: '',
-               message: ''
+               message: '',
+               sendingInProgress: false,
+               errors: {},
+               success: false
            }
        },
        methods: {
            sendForm() {
+               this.sendingInProgress = true;
                axios.post('/api/contacts', {
                    'name': this.name,
                    'email': this.email,
                    'message': this.message,
                }).then(res => {
-                   console.log(res);
+                   this.sendingInProgress = false;
+
+                   if(res.data.errors) {
+                       this.errors = response.data.errors;
+                       this.success = false;
+                   } else {
+                       this.success = true;
+                       this.name= '',
+                       this.email= '',
+                       this.message= '',
+                       this.errors = {};
+                   }
                });
            }
        },
