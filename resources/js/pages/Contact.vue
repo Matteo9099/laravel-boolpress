@@ -65,7 +65,7 @@
                    this.sendingInProgress = false;
 
                    if(res.data.errors) {
-                       this.errors = response.data.errors;
+                       this.errors = res.data.errors;
                        this.success = false;
                    } else {
                        this.success = true;

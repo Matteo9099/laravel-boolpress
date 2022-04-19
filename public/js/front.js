@@ -2150,7 +2150,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.sendingInProgress = false;
 
         if (res.data.errors) {
-          _this.errors = response.data.errors;
+          _this.errors = res.data.errors;
           _this.success = false;
         } else {
           _this.success = true;
