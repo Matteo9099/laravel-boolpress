@@ -9,7 +9,7 @@
                     <thead>
                         <tr class="text-center">
                             <th scope="col">#</th>
-                            <th scope="col">Titolo</th>
+                            <th scope="col">Procs</th>
                             <th scope="col">Contenuto</th>
                             <th scope="col">Slug</th>
                             <th scope="col">Categoria</th>
@@ -17,6 +17,7 @@
                         </tr>
                     </thead>
                     <tbody>
+
                        @foreach ($posts as $post)
                            <tr>
                                <td>{{$post->id}}</td>

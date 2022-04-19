@@ -7,11 +7,21 @@
 
                 <h1>Visualizza Post</h1>
                 
-                @if($post->cover)
+                {{-- @if($post->cover)
                     <img class="img-fluid" src="{{asset('storage/' . $post->cover)}}" alt="{{$post->title}}">
                 @else
                     <img class="img-fluid" src="{{asset('img/fallback.png')}}" alt="{{$post->title}}">
+                @endif --}}
+
+                  
+                @if($post->cover == null)
+                    <img src="{{asset('img/fallback.png')}}">
+    
+                @else
+                     <img src="{{asset('storage/' . $post->cover)}}">
+                
                 @endif
+
                 <div><strong>Titolo: </strong>{{$post->title}}</div>
                 <div><strong>Contenuto: </strong>{!! $post->content !!}</div>
                 <div><strong>Slug: </strong>{{$post->slug}}</div>
