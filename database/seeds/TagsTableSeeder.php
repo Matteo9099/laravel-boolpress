@@ -14,7 +14,28 @@ class TagsTableSeeder extends Seeder
      */
     public function run()
     {
-        $tags = ['Vegetariano', 'Vegano', 'Senza lattosio', 'Senza glutine', 'Carne', 'Pesce'];
+        $tags = 
+        [
+            "#mare",
+            "#photography",
+            "#travelblogger",
+            "#instatravel",
+            "#travelling",
+            "#viaggiaresempre",
+            "#estate",
+            "#vacanza",
+            "#turismo",
+            "#love",
+            "#voyage",
+            "#nature",
+            "#viaggiarechepassione",
+            "#picoftheday",
+            "#holiday",
+            "#wanderlust",
+            "#viaggiando",
+            "#summer",
+            "#photooftheday"
+        ];
 
         foreach($tags as $tag){
             $new_tag = new Tag();

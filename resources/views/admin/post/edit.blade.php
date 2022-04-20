@@ -22,9 +22,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="category_id">Categoria</label>
+                        <label for="category_id">Paese</label>
                         <select class="form-control" id="category_id" name="category_id">
-                            <option value="">Nessuna categoria...</option>
+                            <option value="">Nessuna paese selezionato...</option>
                             @foreach ($categories as $category)
                                 <option {{ old('category_id', $post->category_id) == $category->id ? 'selected' : '' }}
                                     value="{{ $category->id }}">{{ $category->name }}</option>

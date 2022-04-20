@@ -46,11 +46,11 @@ class PostController extends Controller
     {
         $request->validate(
            [
-               'title' => 'required|min:5',
+               'title' => 'required|min:3',
                'content' => 'required|min:10',
                'category_id' => 'nullable|exists:categories,id',
                'tags' => 'nullable|exists:tags,id',
-               'image' => 'nullable|image|max:2048'
+               'image' => 'nullable|mimes:jpg,jpeg,png|max:2048'
            ]
         );
 
@@ -122,11 +122,11 @@ class PostController extends Controller
     {
         $request->validate(
             [
-                'title' => 'required|min:5',
+                'title' => 'required|min:3',
                 'content' => 'required|min:10',
                 'category_id' => 'nullable|exists:categories,id',
                 'tags' => 'nullable|exists:tags,id',
-                'image' => 'nullable|image|max:2048'
+                'image' => 'nullable|mimes:jpg,jpeg,png|max:2048'
             ]
             );
  

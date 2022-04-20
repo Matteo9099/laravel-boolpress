@@ -2,9 +2,8 @@
   <div>
     <div class="card">
         <div class="card-body">
-            <h2 class="card-title">{{ title }}</h2>
+            <h2 class="card-title">{{ title }}, {{ category?category.name:'&nbsp'}}</h2>
             <img class="img-fluid" :src='img' alt='title'>
-            <h4 class="card-title">{{ category?category.name:'&nbsp' }}</h4>
             <p class="card-text">{{ troncateText(content) }}</p>
             <router-link class="btn btn-primary" :to="{ name: 'single-post', params: { slug: slug } }">Vedi articolo completo</router-link>
         </div>
@@ -35,5 +34,6 @@ export default {
 </script>
 
 <style>
-
+    
+  
 </style>

@@ -51,7 +51,8 @@
                message: '',
                sendingInProgress: false,
                errors: {},
-               success: false
+               success: false,
+               message: ''
            }
        },
        methods: {
@@ -75,7 +76,7 @@
                        this.errors = {};
                    }
                });
-           }
+           },
        },
    }
 </script>

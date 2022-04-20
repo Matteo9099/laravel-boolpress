@@ -1,7 +1,7 @@
 <template>
-  <main>
-      <router-view></router-view>
-  </main>
+  <section class="py-4">
+    <router-view></router-view>
+  </section>
 </template>
 
 <script>
@@ -10,4 +10,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+section{
+  background-color: #ccc;
+}
+</style>

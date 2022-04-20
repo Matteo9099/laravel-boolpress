@@ -66,6 +66,11 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+    nav{
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
 
+    }
 </style>
